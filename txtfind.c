@@ -106,7 +106,7 @@ void print_lines(char *str)
         }
         if (substring(line, str) == 1)
         {
-            puts(line);
+            printf("%s", line);
         }
     }
 }
@@ -130,15 +130,15 @@ void print_similar_words(char *str)
             size = 0;
             while (line[j] != '\0')
             {
-                if (line[j] == ' ')
+                if (line[j] == ' '  || line[j] == '\n')
                 {
                     if (similar(word, str, 1) == 1)
                     {
-                        puts(word);
+                        printf("%s\n", word);
                     }
                     if (similar(word, str, 0) == 1)
                     {
-                        puts(word);
+                        printf("%s\n", word);
                     }
                     bzero(word, WORD);
                     size = 0;
@@ -153,12 +153,12 @@ void print_similar_words(char *str)
                 {
                     if (similar(word, str, 1) == 1)
                     {
-                        puts(word);
+                        printf("%s\n", word);
                         size = 0;
                     }
                     if (similar(word, str, 0) == 1)
                     {
-                        puts(word);
+                        printf("%s\n", word);
                         size = 0;
                     }
                 }
